@@ -10,6 +10,7 @@ public class State
     private String xName = "";
     private String oName = "";
     private boolean isTie= false;
+    private boolean isWinner=false;
     private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
     public void setGameState(int gameState){
         this.gameState=gameState;
@@ -25,8 +26,11 @@ public class State
     public void setWhoseMove(int whoseMove){
         this.whoseMove=whoseMove;
     }
-    public int[][] getBoardCell(){
-        return this.board;
+    public int getBoardCell(int row, int col){
+        return this.board[row-1][col-1];
+    }
+    public void setBoardCell(int col, int row, int value){
+        this.board[row-1][col-1]=value;
     }
     public String getPlayerName(){
         return this.xName;
@@ -43,5 +47,10 @@ public class State
     public String getOName(){
         return this.oName;
     }
-    
+    public boolean isTie(){
+        return this.isTie;
+    }
+    public boolean isWinner(){
+        return this.isWinner;
+    }
 }
