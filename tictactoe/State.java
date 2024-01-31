@@ -29,8 +29,8 @@ public class State
     public int getBoardCell(int row, int col){
         return this.board[row-1][col-1];
     }
-    public void setBoardCell(int col, int row, int value){
-        this.board[row-1][col-1]=value;
+    public void setBoardCell(int row, int col, int value){
+        this.board[row+1][col+1]=value;
     }
     public String getPlayerName(){
         return this.xName;
