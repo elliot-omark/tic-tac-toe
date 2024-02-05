@@ -27,10 +27,10 @@ public class State
         this.whoseMove=whoseMove;
     }
     public int getBoardCell(int row, int col){
-        return this.board[row-1][col-1];
+        return this.board[row][col];
     }
     public void setBoardCell(int row, int col, int value){
-        this.board[row+1][col+1]=value;
+        this.board[row][col]=value;
     }
     public String getPlayerName(){
         return this.xName;
