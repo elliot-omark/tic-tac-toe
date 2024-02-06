@@ -39,7 +39,7 @@ public class UI
     }
 
     public int getMoveRow(int whoseMove, String xName, String oName) {
-        int row=1;
+        int row=0;
         while (row <= 0 || row >= 4) {
             try {
                 System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
@@ -52,7 +52,7 @@ public class UI
     }
 
     public int getMoveCol(int whoseMove, String xName, String oName) {
-        int col=1;
+        int col=0;
         while (col <= 0 || col >= 4) {
             try {
                 System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
@@ -77,8 +77,8 @@ public class UI
 
     public void printBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
-        for (int row = 0; row < Constants.BOARD_SIZE; row++) {
-            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 0)), getXOrO(state.getBoardCell(row, 1)), getXOrO(state.getBoardCell(row, 2)));
+        for (int row = 1; row <= Constants.BOARD_SIZE; row++) {
+            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 1)), getXOrO(state.getBoardCell(row, 2)), getXOrO(state.getBoardCell(row, 3)));
             System.out.println();
             System.out.println(Constants.DIVIDER_STRING);
             
