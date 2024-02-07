@@ -55,15 +55,30 @@ public class State
     }
 
     public boolean isTie(){
-        for (int i=0; i< 3; i++) {
-            if (Math.abs(this.board[i][0]+this.board[i][0]+this.board[i][0])!=3){
-                return true;
+        boolean zero=false;
+        int zeros=0;
+        for (int i=0; i< 3; i++) {           
+            for (int x=0;x<3;x++){
+                
+                if (this.board[i][x]!=0){
+                    if (zero==true&&Math.abs(this.board[0][i]+this.board[0][i]+this.board[0][i])!=3){
+                        if (zero==true&&Math.abs(this.board[i][0]+this.board[i][0]+this.board[i][0])!=3){
+
+                            if (i==2){
+                                return true;
+                            }
+
+                        }
+                    }
+                    i++;
+                    if (zeros==9){
+                        zero=true;
+                    }
+                }
             }
-            if (Math.abs(this.board[0][i]+this.board[0][i]+this.board[0][i])!=3){
-                return true;
-            }
-            return false;
         }
+        return false;
+
     }
 
     public boolean isWinner(){
@@ -78,10 +93,10 @@ public class State
                 return true;
             }
             if (Math.abs(this.board[0][0]+this.board[1][1]+this.board[2][2])==3){
-
                 return true;
             }
         }
+
         return false;
     }
 }
